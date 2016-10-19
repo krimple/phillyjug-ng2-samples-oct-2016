@@ -1,18 +1,21 @@
 import { Component, Output, Input } from '@angular/core/src/metadata/directives';
-import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { Customer } from '../../models/customer';
 import { CustomerRESTService } from '../../services/customer-rest.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { rangeValidator } from '../../range.validator';
+
 @Component({
   selector: 'rest-customer-form',
   templateUrl: 'customer-form.component.html'
 })
-export class CustomerFormComponent implements OnChanges {
+
+export class CustomerFormComponent implements OnChanges, OnInit {
 
   @Output() refresh = new EventEmitter<boolean>();
   @Input() customer: Customer;
   private customerFormGroup: FormGroup;
+  displayCustomer: Customer;
 
   constructor(private service: CustomerRESTService,
               private formBuilder: FormBuilder) {
@@ -21,6 +24,15 @@ export class CustomerFormComponent implements OnChanges {
         'name': [null, Validators.required],
         'numSales': ['0', rangeValidator(0, 100000)]
       });
+  }
+
+  
+  ngOnInit():void {
+    this.customerFormGroup.valueChanges
+     .subscribe(customer => {
+       console.log('the times they are changing ...');
+       this.displayCustomer = customer;
+     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {

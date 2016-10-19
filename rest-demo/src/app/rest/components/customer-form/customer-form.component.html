@@ -1,3 +1,5 @@
+ <div style="color:green;padding:10px;" class="row">{{ displayCustomer | json  }}</div>
+
 <form *ngIf="customer" [formGroup]="customerFormGroup" (ngSubmit)="saveOrUpdate(customerFormGroup.value)">
   <div class="form-group">
     <label>Name</label>
