@@ -16,7 +16,7 @@ export class CustomerRESTService {
         return body.map((item) => {
           return new Customer(item['id'], item['name'],
             isNaN(parseFloat(item['numSales'])) ? 0 : parseFloat(item['numSales']));
-        });
+      });
     });
     return response;
   }

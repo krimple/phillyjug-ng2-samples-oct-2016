@@ -81,23 +81,25 @@ void loop() {
         MIDIUSB.write(e);
       }
 
-      prevVolVal = volVal;
-      prevFreqVal = freqVal;
-      prevWaveFormVal = waveFormVal;
-      
-      volVal = analogRead(volPin);
-      freqVal = analogRead(freqPin);
-      waveFormVal = analogRead(waveFormPin);
-      
-      if (prevVolVal != volVal | prevFreqVal != freqVal | prevWaveFormVal != waveFormVal) {
-        Serial.print(volVal);
-        Serial.print(",");
-        Serial.print(freqVal);
-        Serial.print(",");
-        Serial.println(waveFormVal);
-      }
+     
     }
     // flush USB buffer to ensure all notes are sent
     MIDIUSB.flush(); 
   }
+
+   prevVolVal = volVal;
+    prevFreqVal = freqVal;
+    prevWaveFormVal = waveFormVal;
+    
+    volVal = analogRead(volPin);
+    freqVal = analogRead(freqPin);
+    waveFormVal = analogRead(waveFormPin);
+    
+    if (prevVolVal != volVal | prevFreqVal != freqVal | prevWaveFormVal != waveFormVal) {
+      Serial.print(volVal);
+      Serial.print(",");
+      Serial.print(freqVal);
+      Serial.print(",");
+      Serial.println(waveFormVal);
+    }
 }

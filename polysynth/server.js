@@ -52,6 +52,7 @@ if (process.argv[2] === 'emulator') {
   port.on('data', function(data) {
      //console.log('incoming!', JSON.stringify(data));
      // split into three readings
+     console.log('data incoming', data);
      var readings = data.split(',').map(function(d) { return parseInt(d); });
      listeners.forEach(function(listener) {
         listener.send(JSON.stringify(readings));
