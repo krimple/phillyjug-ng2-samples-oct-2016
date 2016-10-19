@@ -41,6 +41,7 @@ export class CustomerFormComponent implements OnChanges, OnInit {
     if (changes['customer'] !== undefined) {
       console.log('customer changes inbound', changes);
       let customer = changes['customer']['currentValue'];
+      let displayCustomer = customer;
       this.customerFormGroup = this.formBuilder.group({
         'id': customer.id,
         'name': [customer.name, Validators.required],
