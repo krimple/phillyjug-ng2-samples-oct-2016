@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary" (click)="add()">New...</button>
+  </div>
+
+  <table class="table table-border table-striped">
+    <tr><th>ID</th><th>Name</th><th>Sales</th><th>&nbsp;</th></tr>
+    <tr *ngFor="let customer of customers">
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.numSales | currency }}</td>
+      <td><button class="btn btn-primary"
+                  (click)="edit(customer)">Edit</button></td>
+    </tr>
+  </table>
+  <div class="row">{{ customer | json  }}</div>
+  <div class="row" *ngIf="customer">
+    <rest-customer-form [customer]="customer"
+                        (refresh)="reloadCustomers()"></rest-customer-form>
+  </div>
+</div>
+

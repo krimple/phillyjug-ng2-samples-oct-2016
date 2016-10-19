@@ -1,0 +1,18 @@
+<form *ngIf="customer" [formGroup]="customerFormGroup" (ngSubmit)="saveOrUpdate(customerFormGroup.value)">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text"
+           [formControl]="customerFormGroup.controls['name']">
+    <span *ngIf="customerFormGroup.controls['name'].hasError('required') &&
+        customerFormGroup.controls['name'].touched">Required!</span>
+  </div>
+  <div class="form-group">
+    <label>Number of Sales</label>
+    <input type="number"
+           [formControl]="customerFormGroup.controls['numSales']">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary"><span *ngIf="customer.id">Update</span>
+      <span *ngIf="!customer.id">Create</span></button>
+  </div>
+</form>

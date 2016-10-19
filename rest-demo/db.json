@@ -1,0 +1,72 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "AAA Corporation",
+      "numSales": 500
+    },
+    {
+      "id": 2,
+      "name": "BB Corporation",
+      "numSales": 530
+    },
+    {
+      "id": 3,
+      "name": "CA Corporation",
+      "numSales": 503
+    },
+    {
+      "id": 4,
+      "name": "QA Corporation",
+      "numSales": 533
+    },
+    {
+      "id": 5,
+      "name": "asdfsadfsdf",
+      "numSales": 34,
+      "serverId": "server"
+    },
+    {
+      "id": 6,
+      "name": "aslfkjasdfkj",
+      "numSales": 3,
+      "serverId": "server"
+    },
+    {
+      "id": 7,
+      "name": "BOO BEAN",
+      "numSales": 3,
+      "serverId": "server"
+    },
+    {
+      "id": 8,
+      "name": "BLAH BLAH ",
+      "numSales": 3333,
+      "serverId": "server"
+    },
+    {
+      "id": 9,
+      "name": "lksjf;lakfjs",
+      "numSales": 333,
+      "serverId": "server"
+    },
+    {
+      "id": 10,
+      "name": "lkasjdflkasjdflkj",
+      "numSales": 4,
+      "serverId": "server"
+    },
+    {
+      "id": 11,
+      "name": "asdfasdf",
+      "numSales": 33,
+      "serverId": "server"
+    },
+    {
+      "id": 12,
+      "name": "asfdaf",
+      "numSales": 4,
+      "serverId": "server"
+    }
+  ]
+}
