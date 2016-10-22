@@ -10,12 +10,13 @@ export class Oscillator {
 
   constructor(private frequency: number,
               private waveForm: string,
-              private audioContext: AudioContext) {
+              private audioContext: AudioContext,
+              private compressor: DynamicsCompressorNode) {
     // establish base frequency
     this.baseFrequency = frequency;
     this.gainNode = audioContext.createGain();
     this.gainNode.gain.value = 0;
-    this.gainNode.connect(audioContext.destination);
+    this.gainNode.connect(compressor);
     this.oscillator = audioContext.createOscillator();
     this.oscillator.connect(this.gainNode);
     this.oscillator.frequency.value = this.baseFrequency;

@@ -11,9 +11,10 @@ export class SynthNote {
                 private waveForm: string,
                 private noteTranslationService: NoteTranslationService,
                 private noteStream: Subject<SynthInputMessage>,
-                private audioContext: AudioContext) {
+                private audioContext: AudioContext,
+                private compressor: DynamicsCompressorNode) {
 
-        this.oscillator = new Oscillator(noteTranslationService.getFrequency(note), waveForm, audioContext);
+        this.oscillator = new Oscillator(noteTranslationService.getFrequency(note), waveForm, audioContext, compressor);
 
         this.noteStream
             .filter((noteMessage: SynthInputMessage) => {
